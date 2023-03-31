@@ -29,18 +29,18 @@ public class MovieController {
         String ans=movieService.addMovieDirectorPair(movie,director);
         return new ResponseEntity<>(ans,HttpStatus.CREATED);
      }
-     @GetMapping("/get-movie-by-name")
+     @GetMapping("/get-movie-by-name/{name}")
     public ResponseEntity<Movie> getMovieByName(@RequestParam("name") String name){
 
         Movie movie1 =movieService.getMovieByName(name);
         return new ResponseEntity<>(movie1,HttpStatus.CREATED);
      }
-     @GetMapping("/get-director-by-name")
+     @GetMapping("/get-director-by-name/{name}")
       public ResponseEntity<Director>getDirectorByName(@RequestParam("name") String name){
          Director director=movieService.getDirectorByName(name);
          return new ResponseEntity<>(director,HttpStatus.CREATED);
      }
-     @GetMapping("/get-movies-by-director-name")
+     @GetMapping("/get-movies-by-director-name/{director}")
      public ResponseEntity<List<String>>getMoviesByDirectorName(@RequestParam("name") String name){
          List<String>movieList=movieService.getListOfMovieNameByDirector(name);
 
